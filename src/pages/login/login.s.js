@@ -7,6 +7,7 @@ export const WrapLogIn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #363740;
 `;
 export const Content = styled.div`
   width: 382px;

@@ -8,5 +8,8 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #363740;
+  background: #fff;
+}
+a {
+  text-decoration: none;
 }
