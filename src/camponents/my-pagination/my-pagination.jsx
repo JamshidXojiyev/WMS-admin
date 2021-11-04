@@ -1,16 +1,17 @@
-import React from "react";
-import Pagination from "@material-ui/lab/Pagination";
-import { PaginationContainer } from "./my-pagination";
+import { H3, PaginationContainer, PaginationContent } from "./my-pagination";
+import MySearch from "../../camponents/my-select/my-select";
 
-function MyPagination({ ...resp }) {
+export default function MyPagination(resp) {
   return (
-    <>
-      <h1>asdasd</h1>
-      {/* <PaginationContainer>
-        <Pagination count={10} shape="rounded" />
-      </PaginationContainer> */}
-    </>
+    <PaginationContainer>
+      <PaginationContent count={resp.limit} shape="rounded" />
+      <H3>Показать на странице</H3>
+      <MySearch
+        width="80px"
+        height="40px"
+        data={["10", "20", "30", "50"]}
+        onChange={(e) => console.log(e.target.value)}
+      />
+    </PaginationContainer>
   );
 }
-
-export default MyPagination;

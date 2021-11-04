@@ -57,5 +57,6 @@ export const Body = styled.div`
   right: 0;
   left: 225px;
   padding: 20px 30px;
-  overflow-x: scroll;
+  padding-bottom: 0;
+  overflow-x: auto;
 `;

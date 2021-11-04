@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyButton from "../../camponents/my-button/my-button";
 import MyInput from "../../camponents/my-input/my-input";
 import MyTable from "../../camponents/my-table/my-table";
@@ -6,9 +6,10 @@ import MySearch from "../../camponents/my-select/my-select";
 import { MyDiv } from "../../global-style/my-div.s";
 import { ReactComponent as Download } from "../../assats/download.svg";
 import { productData } from "./data";
-import Pagination from "@material-ui/lab/Pagination";
+import { MyLoader } from "../../global-style/loader.s";
 
 function Product(props) {
+  const [load, setLoad] = useState(true);
   return (
     <>
       <MyDiv height="38px" gap="20px" header>
@@ -39,9 +40,8 @@ function Product(props) {
           />
         </MyDiv>
       </MyDiv>
-      <MyDiv>
-      </MyDiv>
-      <MyTable datas={productData} />
+      <MyDiv></MyDiv>
+      {load ? <MyLoader /> : <MyTable datas={productData} />}
     </>
   );
 }
