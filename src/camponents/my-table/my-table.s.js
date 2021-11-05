@@ -13,6 +13,10 @@ export const TableWrap = styled(Table)`
     line-height: 15px;
     color: #363740;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0;
+  }
+  & thead > tr > th:first-child {
+    padding: 12px;
   }
   & tbody > tr:nth-child(even) {
     background: #f9f9f9;
@@ -26,6 +30,7 @@ export const TableWrap = styled(Table)`
     padding: 0 !important;
     height: 39px;
     border: 0;
+    
   }
   & .MuiTableCell-body {
     font-family: "Inter", sans-serif;

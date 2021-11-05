@@ -13,3 +13,14 @@ body {
 a {
   text-decoration: none;
 }
+.employee-table tr > td:nth-child(1),
+.employee-table tr > td:nth-child(4),
+.employee-table tr > td:nth-child(5),
+.employee-table tr > td:nth-child(6),
+.employee-table tr > td:nth-child(7),
+.employee-table tr > td:nth-child(8) {
+  text-align: center;
+}
+.employee-table tr > th:nth-child(3) {
+  text-align: left;
+}

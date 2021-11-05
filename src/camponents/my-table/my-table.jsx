@@ -17,33 +17,36 @@ import MySearch from "../../camponents/my-select/my-select";
 function MyTable(props) {
   return (
     <MyDiv height="calc(100% - 38px)">
-      <TableContainer>
-        <TableWrap>
-          <TableHead>
-            <TableRow>
-              {props.datas.header.map((data, index) => (
-                <TableCell align="center" key={index}>
-                  {data}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell colSpan={props.datas.order.length}></TableCell>
-            </TableRow>
-            {props.datas.body.map((data, index) => (
-              <TableRow className="table-row" key={index}>
-                {props.datas.order.map((item, indexx) => (
-                  <TableCell align="center" key={indexx}>
-                    {typeof item === "string" ? data[item] : item(data)}
+      <MyDiv className={props.align}>
+        <TableContainer>
+          <TableWrap>
+            <TableHead>
+              <TableRow>
+                {props.datas.header.map((data, index) => (
+                  <TableCell align="center" key={index}>
+                    {data}
                   </TableCell>
                 ))}
               </TableRow>
-            ))}
-          </TableBody>
-        </TableWrap>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell colSpan={props.datas.order.length}></TableCell>
+              </TableRow>
+              {props.datas.body.map((data, index) => (
+                <TableRow className="table-row" key={index}>
+                  {props.datas.order.map((item, indexx) => (
+                    <TableCell align="left" key={indexx}>
+                      {typeof item === "string" ? data[item] : item(data)}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableWrap>
+        </TableContainer>
+      </MyDiv>
+
       <PaginationContainer>
         <PaginationContent
           defaultPage={props.page}
@@ -56,7 +59,7 @@ function MyTable(props) {
           defaultValue={props.limit}
           width="80px"
           height="40px"
-          data={["10", "20", "30", "50"]}
+          data={["5", "10", "20", "30", "50"]}
           onChange={(e) => props.onLimitChange(e.target.value)}
         />
       </PaginationContainer>

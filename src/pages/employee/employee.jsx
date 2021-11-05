@@ -5,21 +5,58 @@ import MyInput from "../../camponents/my-input/my-input";
 import MyTable from "../../camponents/my-table/my-table";
 import { MyLoader } from "../../global-style/loader.s";
 import { MyDiv } from "../../global-style/my-div.s";
-import { productDataE } from "./data";
+import { ReactComponent as Edit } from "../../assats/edit.svg";
+import { IconButton } from "@material-ui/core";
+import MyDialog from "../../camponents/my-dialog/my-dialog";
+import EmployeeDialog from "./employee-dialog/employee-dialog";
 
 function Employee(props) {
   const [respons, setRespons] = useState([]);
-  const [data, setData] = useState(productDataE);
   const [load, setLoad] = useState(true);
+  const [dialog, setDialog] = useState(false);
+  const [editData, setEditData] = useState([]);
 
   const [limit, setLimit] = useState(10);
   const [pages, setPages] = useState(1);
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
+
+  const productDataE = {
+    header: [
+      <Edit />,
+      "Имя",
+      "Фамилия",
+      "Номер телефон",
+      "Пароль",
+      "Статус",
+      "Роль",
+      "Секция",
+    ],
+    body: [],
+    order: [
+      (item) => (
+        <IconButton
+          onClick={() => {
+            setDialog(true);
+            setEditData(item);
+          }}
+        >
+          <Edit />
+        </IconButton>
+      ),
+      "name",
+      "last_name",
+      "phone",
+      "password",
+      "status",
+      "role",
+      "section",
+    ],
+  };
+  const [data, setData] = useState(productDataE);
+
   useEffect(() => {
     setLoad(true);
-    console.log("get - page: ", page);
-    console.log("get - offset: ", offset);
     axios
       .get(`http://89.223.71.112:3000/user?limit=${limit}&offset=${offset}`, {
         headers: {
@@ -40,12 +77,13 @@ function Employee(props) {
   useEffect(() => {
     const TableData = respons.map((user) => {
       const tableTest = {
+        id: user.id,
         name: user.Name,
         last_name: user.last_name,
         phone: user.Phone,
         password: user.Password,
-        permission: user.permission,
-        warehouse: user.warehouse,
+        status: user.warehouse,
+        role: user.permission,
         section: user.section,
       };
       return tableTest;
@@ -57,7 +95,22 @@ function Employee(props) {
     <>
       <MyDiv height="38px" gap="20px" header>
         <MyInput value="Search" global width="531px" />
-        <MyButton squashed text="Добавить сотрудник" width="176px" />
+        <MyButton
+          squashed
+          text="Добавить сотрудник"
+          width="176px"
+          onClick={() => {
+            setDialog(true);
+            setEditData([]);
+          }}
+        />
+        <MyDialog
+          title="Сотрудники править"
+          body={<EmployeeDialog data={editData} />}
+          onClose={() => setDialog(false)}
+          open={dialog}
+          CloseBtn={(e) => setDialog(e)}
+        />
       </MyDiv>
       {load ? (
         <MyLoader />
@@ -65,7 +118,6 @@ function Employee(props) {
         <MyTable
           onPageChange={(val) => {
             setPage(val);
-            console.log("page edit: ", val);
           }}
           onLimitChange={(val) => setLimit(val)}
           datas={data}
@@ -73,6 +125,7 @@ function Employee(props) {
           page={page}
           limit={limit}
           offset={offset}
+          align="employee-table"
         />
       )}
     </>

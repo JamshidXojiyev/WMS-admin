@@ -59,4 +59,5 @@ export const Body = styled.div`
   padding: 20px 30px;
   padding-bottom: 0;
   overflow-x: auto;
+  min-width: 860px;
 `;
