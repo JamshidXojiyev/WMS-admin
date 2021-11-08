@@ -60,7 +60,7 @@ function Employee(props) {
     axios
       .get(`http://89.223.71.112:3000/user?limit=${limit}&offset=${offset}`, {
         headers: {
-          Authorization: "OTk1MzkzMTk3OjUzOTMxOTc=",
+          Authorization: "OTM5MzcwMzAyOjkzNzAzMDI=",
         },
       })
       .then((res) => {
@@ -69,7 +69,7 @@ function Employee(props) {
         setPages((res.data.count / limit).toFixed());
       })
       .catch((err) => console.log(err.message));
-  }, [limit, offset, page]);
+  }, [limit, offset, page, dialog]);
   useEffect(() => {
     setOffset((page - 1) * limit);
   }, [page]);
@@ -94,7 +94,7 @@ function Employee(props) {
   return (
     <>
       <MyDiv height="38px" gap="20px" header>
-        <MyInput value="Search" global width="531px" />
+        <MyDiv></MyDiv>
         <MyButton
           squashed
           text="Добавить сотрудник"
@@ -106,7 +106,12 @@ function Employee(props) {
         />
         <MyDialog
           title="Сотрудники править"
-          body={<EmployeeDialog data={editData} />}
+          body={
+            <EmployeeDialog
+              data={editData}
+              onCloseDialog={(e) => setDialog(e)}
+            />
+          }
           onClose={() => setDialog(false)}
           open={dialog}
           CloseBtn={(e) => setDialog(e)}

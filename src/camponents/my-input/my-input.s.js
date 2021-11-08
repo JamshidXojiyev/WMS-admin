@@ -11,6 +11,10 @@ const globalStyle = css`
   border: 1px solid #eaeaea;
   border-radius: 4px;
 `;
+const errStyle = css`
+  border: 1px solid #ff0000;
+  color: #ff0000;
+`;
 
 export const InputCamponent = styled(InputBase)`
   && {
@@ -28,5 +32,6 @@ export const InputCamponent = styled(InputBase)`
       padding: 0 !important;
     }
     ${({ login, global }) => (login ? loginStyle : globalStyle)}
+    ${({ error }) => (error ? errStyle : "")}
   }
 `;

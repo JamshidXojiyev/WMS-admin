@@ -39,7 +39,7 @@ function MainView(props) {
         </List>
       </Siderbar>
       <Navigationbar>
-        {location.pathname === "/product" ? "Items" : "Сотрудники"}
+        {location.pathname === "/product" ? "Товары" : "Сотрудники"}
       </Navigationbar>
       <Body>
         <Route exact path="/product" component={Product} />

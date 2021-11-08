@@ -13,14 +13,26 @@ body {
 a {
   text-decoration: none;
 }
-.employee-table tr > td:nth-child(1),
-.employee-table tr > td:nth-child(4),
-.employee-table tr > td:nth-child(5),
-.employee-table tr > td:nth-child(6),
-.employee-table tr > td:nth-child(7),
-.employee-table tr > td:nth-child(8) {
-  text-align: center;
+.employee-table tr > th:nth-child(1) {
+  text-align: left !important;
+  padding: 10px 12px 10px 24px !important;
 }
-.employee-table tr > th:nth-child(3) {
-  text-align: left;
+.employee-table tr > th {
+  text-align: left !important;
+}
+.employee-table tr > td:nth-child(1) {
+  text-align: left !important;
+  padding: 0 8px 0 12px !important;
+}
+.employee-table tr > td {
+  text-align: left !important;
+}
+
+.product-table tr > td:nth-child(1) {
+  text-align: left !important;
+  padding: 0 8px 0 12px !important;
+}
+.product-table tr > th {
+  text-align: left !important;
+  padding: 10px 8px 10px 12px !important;
 }

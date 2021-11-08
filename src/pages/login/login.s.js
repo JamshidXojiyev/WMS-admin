@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as LoginContentBg } from "../../assats/login.svg";
 
-export const WrapLogIn = styled.div`
+export const WrapLogIn = styled.form`
   width: 100%;
   height: 100vh;
   display: flex;

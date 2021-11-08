@@ -14,6 +14,7 @@ import {
   TableWrap,
 } from "./my-table.s";
 import MySearch from "../../camponents/my-select/my-select";
+import MyInput from "../my-input/my-input.jsx";
 function MyTable(props) {
   return (
     <MyDiv height="calc(100% - 38px)">
@@ -55,13 +56,24 @@ function MyTable(props) {
           onChange={(e, value) => props.onPageChange(value)}
         />
         <H3>Показать на странице</H3>
-        <MySearch
-          defaultValue={props.limit}
-          width="80px"
-          height="40px"
-          data={["5", "10", "20", "30", "50"]}
-          onChange={(e) => props.onLimitChange(e.target.value)}
-        />
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log("Submitted");
+          }}
+        >
+          <MyInput
+            value={props.limit}
+            global
+            width="80px"
+            height="40px"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                props.onLimitChange(e.target.value);
+              }
+            }}
+          />
+        </form>
       </PaginationContainer>
     </MyDiv>
   );

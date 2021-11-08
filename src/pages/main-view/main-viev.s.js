@@ -8,6 +8,8 @@ export const Siderbar = styled.div`
   width: 225px;
   height: 100vh;
   background: #363740;
+  box-shadow: 0 0 10px rgb(0 0 0 / 60%);
+  z-index: 1;
 `;
 export const ListItemBtn = styled(ListItem)`
   && .MuiListItemText-root {
