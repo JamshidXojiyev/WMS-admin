@@ -6,7 +6,7 @@ import { MyDiv } from "../../global-style/my-div.s";
 import Employee from "../employee/employee";
 import Product from "../product/product";
 import { Body, ListItemBtn, Navigationbar, Siderbar } from "./main-viev.s";
-import { Route, useLocation } from "react-router";
+import { Route, useLocation , Redirect } from "react-router";
 
 function MainView(props) {
   const location = useLocation();
@@ -41,6 +41,7 @@ function MainView(props) {
         {location.pathname === "/product" ? "Товары" : "Сотрудники"}
       </Navigationbar>
       <Body>
+        <Route exact path="/" render={() => <Redirect to="/product"/>} />
         <Route exact path="/product" component={Product} />
         <Route exact path="/employee" component={Employee} />
       </Body>

@@ -13,7 +13,6 @@ import {
   PaginationContent,
   TableWrap,
 } from "./my-table.s";
-import MySearch from "../../camponents/my-select/my-select";
 import MyInput from "../my-input/my-input.jsx";
 function MyTable(props) {
   return (

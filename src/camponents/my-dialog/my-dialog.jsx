@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Body, DialogContainer, Title, TitleText } from "./my-dialog.s";
 import { ReactComponent as Close } from "../../assats/close.svg";
 import { IconButton } from "@material-ui/core";

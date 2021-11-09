@@ -1,10 +1,9 @@
-import { useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router";
-import LogIn from "./pages/login/login";
+import { Route, Switch } from "react-router";
+// import LogIn from "./pages/login/login";
 import MainView from "./pages/main-view/main-viev";
 function App() {
-  const history = useHistory();
-  const uset = localStorage.getItem("my-token");
+  // const history = useHistory();
+  // const uset = localStorage.getItem("my-token");
   // if (!uset) {
   //   history.push("/login");
   // } else {
@@ -13,7 +12,7 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/login" component={LogIn} />
+      {/* <Route exact path="/login" component={LogIn} /> */}
       <Route path="/" component={MainView} />
     </Switch>
   );

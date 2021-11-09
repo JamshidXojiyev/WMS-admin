@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MyButton from "../../camponents/my-button/my-button";
-import MyInput from "../../camponents/my-input/my-input";
 import MyTable from "../../camponents/my-table/my-table";
 import { MyLoader } from "../../global-style/loader.s";
 import { MyDiv } from "../../global-style/my-div.s";

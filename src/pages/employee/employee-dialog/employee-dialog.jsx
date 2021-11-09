@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MyButton from "../../../camponents/my-button/my-button";
 import MyInput from "../../../camponents/my-input/my-input";
 import { Form } from "../../../global-style/form.s";
@@ -8,13 +8,15 @@ import Alert from "@material-ui/lab/Alert";
 import { Snackbar } from "@material-ui/core";
 
 function EmployeeDialog({ data, onCloseDialog }) {
-  const [name, set_name] = useState(data == [] ? "" : data.name);
-  const [last_name, set_last_name] = useState(data == [] ? "" : data.last_name);
-  const [phone, set_phone] = useState(data == [] ? "" : data.phone);
-  const [password, set_password] = useState(data == [] ? "" : data.password);
-  const [status, set_status] = useState(data == [] ? "" : data.status);
-  const [role, set_role] = useState(data == [] ? "" : data.role);
-  const [section, set_section] = useState(data == [] ? "" : data.section);
+  const [name, set_name] = useState(data === [] ? "" : data.name);
+  const [last_name, set_last_name] = useState(
+    data === [] ? "" : data.last_name
+  );
+  const [phone, set_phone] = useState(data === [] ? "" : data.phone);
+  const [password, set_password] = useState(data === [] ? "" : data.password);
+  const [status, set_status] = useState(data === [] ? "" : data.status);
+  const [role, set_role] = useState(data === [] ? "" : data.role);
+  const [section, set_section] = useState(data === [] ? "" : data.section);
 
   const [errMessage, setErrMessage] = useState("");
   const [errType, setErrType] = useState("error");
@@ -23,13 +25,13 @@ function EmployeeDialog({ data, onCloseDialog }) {
   const create = (e) => {
     e.preventDefault();
     if (
-      !name ||
-      !last_name ||
-      !phone ||
-      !password ||
-      !status ||
-      !role ||
-      !section
+      !name === "" ||
+      !last_name === "" ||
+      !phone === "" ||
+      !password === "" ||
+      !status === "" ||
+      !role === "" ||
+      !section === ""
     ) {
       setTost(true);
       setErrMessage("Обязательные поля пустые!");
@@ -61,13 +63,13 @@ function EmployeeDialog({ data, onCloseDialog }) {
   const update = (e) => {
     e.preventDefault();
     if (
-      !name ||
-      !last_name ||
-      !phone ||
-      !password ||
-      !status ||
-      !role ||
-      !section
+      !name === "" ||
+      !last_name === "" ||
+      !phone === "" ||
+      !password === "" ||
+      !status === "" ||
+      !role === "" ||
+      !section === ""
     ) {
       setTost(true);
       setErrMessage("Обязательные поля пустые!");

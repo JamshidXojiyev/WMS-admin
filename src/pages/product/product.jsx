@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import MyButton from "../../camponents/my-button/my-button";
 import MyInput from "../../camponents/my-input/my-input";
 import MyTable from "../../camponents/my-table/my-table";
-import MySearch from "../../camponents/my-select/my-select";
 import { MyDiv } from "../../global-style/my-div.s";
 import { ReactComponent as Download } from "../../assats/download.svg";
+import { ReactComponent as Refresh } from "../../assats/refresh.svg";
 import { MyLoader } from "../../global-style/loader.s";
 import axios from "axios";
 import exportFromJson from "export-from-json";
@@ -47,7 +47,7 @@ function Product(props) {
   }, [limit, offset, page]);
   useEffect(() => {
     setData({ ...data, body: respons });
-  }, [respons]);
+  }, [respons,data]);
   useEffect(() => {
     setOffset((page - 1) * limit);
   }, [page]);
@@ -68,13 +68,23 @@ function Product(props) {
   return (
     <>
       <MyDiv height="38px" gap="20px" header>
-        <MyDiv height="38px" gap="20px"></MyDiv>
+        <MyDiv height="38px" gap="20px">
+          <MyInput value="поиск наименование" global width="320px" />
+          <MyInput value="поиск код" global width="120px" />
+        </MyDiv>
         <MyDiv height="38px" gap="20px">
           <MyButton
             squashed
             text="Скачать в Excel"
             icon={<Download />}
             onClick={makeShake}
+            width="145px"
+          />
+          <MyButton
+            squashed
+            text="Обновить"
+            icon={<Refresh />}
+            onClick={()=> window.location.reload()}
             width="145px"
           />
         </MyDiv>
