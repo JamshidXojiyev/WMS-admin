@@ -31,7 +31,6 @@ function EmployeeDialog({ data, onCloseDialog }) {
       !role ||
       !section
     ) {
-      console.log("asdasd");
       setTost(true);
       setErrMessage("Обязательные поля пустые!");
     } else {

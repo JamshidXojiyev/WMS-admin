@@ -10,7 +10,6 @@ import { Route, useLocation } from "react-router";
 
 function MainView(props) {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <>
       <Siderbar>

@@ -86,11 +86,9 @@ function Product(props) {
         <MyTable
           onPageChange={(val) => {
             setPage(val);
-            console.log(val);
           }}
           onLimitChange={(val) => {
             setLimit(val);
-            console.log(val);
           }}
           datas={data}
           pages={pages}
